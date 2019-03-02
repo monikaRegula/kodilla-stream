@@ -1,6 +1,8 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.Beautfier;
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.beautifier.PoemDecorator;
 import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
@@ -17,6 +19,18 @@ import java.util.stream.Collectors;
 public class StreamMain {
     public static void main(String[] args) {
 
+        //BEAUTIFIER:
+
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+
+        poemBeautifier.beautify("Welcome", Beautfier::bigLetters);
+        poemBeautifier.beautify("Hello",Beautfier::addingABC);
+        poemBeautifier.beautify("Good morning",Beautfier::smallLetters);
+        poemBeautifier.beautify("ABCHElloABC",Beautfier::replaceABCtoCBA);
+        poemBeautifier.beautify("Ananase",Beautfier::replaceAToE);
+
+
+        //********************************************************
         Forum forum = new Forum();
 
         Map<Integer, ForumUser> map = forum.getTheList().stream()
